@@ -35,7 +35,7 @@ if [ $enable_ipv6 = true -a -n "$ipv6" ]; then
     curl --user $username:$password ${dyndns_update_url}myip=${ipv4}&myipv6=${ipv6}
   fi
 else
-  if [ $host_ipv4 != $ipv4 ]; then
+  if [ "$host_ipv4" != "$ipv4" ]; then
     curl --user $username:$password ${dyndns_update_url}myip=${ipv4}
   fi
 fi
