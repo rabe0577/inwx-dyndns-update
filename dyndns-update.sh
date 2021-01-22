@@ -31,7 +31,7 @@ host_ipv6=$(dig @$test_dns_server +short -t aaaa $hostname | head -n 1)
 
 # Update DynDNS IP if not correct
 if [ $enable_ipv6 = true -a -n "$ipv6" ]; then
-  if [ $host_ipv4 != $ipv4 -o $host_ipv6 != $ipv6 ]; then
+  if [ "$host_ipv4" != "$ipv4" -o "$host_ipv6" != "$ipv6" ]; then
     curl --user $username:$password ${dyndns_update_url}myip=${ipv4}&myipv6=${ipv6}
   fi
 else
